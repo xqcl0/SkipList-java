@@ -1,5 +1,6 @@
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.Random;
 import java.util.Scanner;
 
 public class SkipList<K extends Comparable<K>, V> {
@@ -40,6 +41,14 @@ public class SkipList<K extends Comparable<K>, V> {
         }
     }
 
+    private static int generateRandomLevel() {
+        int level = 1;
+        Random random = new Random();
+        while (random.nextInt(2) == 1) {
+            level++;
+        }
+        return Math.min(level, MAX_LEVEL);
+    }
 
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
